@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     public int velocidade = 10;
     public Rigidbody rb;
+    
     // Start is called before the first frame update
     void Start()
     {
