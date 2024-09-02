@@ -8,10 +8,14 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI hud, msgvitoria;
     public int restantes;
+    public AudioClip clipmoeda, clipVitoria;
+
+    private AudioSource source;
     
     // Start is called before the first frame update
     void Start()
     {
+        TryGetComponent(out source);
         restantes = FindObjectsOfType<COIN>().Length;
 
         hud.text = $"moedas restantes: {restantes}";
@@ -21,11 +25,14 @@ public class GameManager : MonoBehaviour
     {
         restantes -= valor;
         hud.text = $"moedas restantes: {restantes}";
-        
+        source.PlayOneShot(clipmoeda);
+            
         if (restantes <= 0)
         {
             //Ganhou o jogo
-            msgvitoria.text = "uhuu";
+            msgvitoria.text = "Parabéns";
+            source.Stop();
+            source.PlayOneShot(clipVitoria);
         }
     }
 
