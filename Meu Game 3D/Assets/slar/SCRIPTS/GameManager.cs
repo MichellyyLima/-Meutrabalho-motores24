@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
         TryGetComponent(out source);
         restantes = FindObjectsOfType<COIN>().Length;
 
-        hud.text = $"moedas restantes: {restantes}";
+        hud.text = $"Moedas restantes: {restantes}";
     }
 
     public void SubtrairMoedas(int valor)
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         if (restantes <= 0)
         {
             //Ganhou o jogo
-            msgvitoria.text = "Parabéns";
+            msgvitoria.text = "Parabéns;)";
             source.Stop();
             source.PlayOneShot(clipVitoria);
         }
